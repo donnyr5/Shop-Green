@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+We are using React JS and Node JS, as well as Express for the server framework and MongoDB for the database.  (MERN stack)
+
 ## Available Scripts
 
 In the project directory, you can run:
