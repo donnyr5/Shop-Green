@@ -1,12 +1,13 @@
 import './App.css';
-import ListMovies from './components/ListMovies';
-import AddMovie from './components/AddMovie';
+import ListItems from './components/ListItems';
+import AddItem from './components/AddItem';
 
 function App() {
   return (
     <div className='App'>
       <main>
-        <ListMovies />
+        <ListItems />
+        <AddItem />
       </main>
     </div>
 
