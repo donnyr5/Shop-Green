@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 
-export default function AddItem() {
+export default function AddItem(props) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState()
     const [description, setDescription] = useState('')
+    let owner = props.email
 
 
     function handleSubmit(e) {
@@ -15,7 +16,7 @@ export default function AddItem() {
             return
         }
         const itemsCollRef = collection(db, 'items')
-        addDoc(itemsCollRef, { name, price, description}).then(response => { 
+        addDoc(itemsCollRef, { name, price, description, owner}).then(response => { 
             console.log(response) 
         }).catch(error => {
             console.log(error.message)
