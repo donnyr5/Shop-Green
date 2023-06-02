@@ -23,7 +23,7 @@ function App() {
 
   
   const [user] = useAuthState(auth);
-  const [email] = useState(user.email);
+  const [email] = useState( (user) ? user.email : "");  //if user is null, set to empty string.
   const [isPosting, setIsPosting] = useState(false)
 
 

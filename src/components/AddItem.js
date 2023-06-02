@@ -6,7 +6,7 @@ export default function AddItem(props) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState()
     const [description, setDescription] = useState('')
-    let owner = props.email
+    let owner = props.email;
 
 
     function handleSubmit(e) {
