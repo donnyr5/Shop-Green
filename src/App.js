@@ -23,6 +23,7 @@ function App() {
     )
   }
 
+  
   function PostingItem(props){
     return (
       <div className='App'>
