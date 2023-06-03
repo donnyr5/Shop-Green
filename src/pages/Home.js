@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { getDocs } from "firebase/firestore";
+import { getDocs, onSnapshot} from "firebase/firestore";
 import ListItems from '../components/ListItems';
 import AddItem from '../components/AddItem';
 import Searchbar from '../components/Searchbar';
@@ -10,6 +10,15 @@ const Home = () => {
     const [items, setItems] = useState([])
     const [searchResults, setSearchResults] = useState([])
 
+    useEffect(() => {           // so that it updates.  
+    const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
+        setSearchResults(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+    })
+
+    return () => {
+        unsubscribe()
+    }
+}, [])
     useEffect(() => {
         getDocs(itemCollectionRef)
         .then(response => {
