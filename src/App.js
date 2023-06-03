@@ -38,7 +38,6 @@ function App() {
     //this is if the user is logged in.
     return (
       <div>
-        <SignOut />
         <SearchBar />
       <section>
          {user ? <Dashboard /> : <SignIn />}

@@ -38,7 +38,7 @@ export default function ListItems({searchResults}) {
     return (
         <div>
             <ul>
-                {searchResults.map(item => (
+                {searchResults && searchResults.map(item => (
                      <li key={item.id}>{item.data.name}
                      {/* <button onClick={() => deleteItem(item.id)}>delete</button> */}
                      </li>
