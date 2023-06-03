@@ -49,7 +49,7 @@ const Home = () => {
                     alignItems: 'Left',
                 }}
             >
-                <AddItem />
+
             </div>
         </>
     );
