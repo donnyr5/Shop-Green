@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../firebase';
+import { addDoc } from 'firebase/firestore';
+import { itemCollectionRef } from '../firestore-collection';
 
 export default function AddItem() {
     const [name, setName] = useState('')
@@ -10,8 +10,7 @@ export default function AddItem() {
         if (name === '') {
             return
         }
-        const itemsCollRef = collection(db, 'items')
-        addDoc(itemsCollRef, { name }).then(response => { 
+        addDoc(itemCollectionRef, { name }).then(response => { 
             console.log(response) 
         }).catch(error => {
             console.log(error.message)
