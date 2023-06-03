@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
+import { itemCollectionRef } from '../firestore-collection';
+import {collection} from 'firebase/firestore';
 import { db } from '../firebase';
 
 export default function AddItem(props) {
