@@ -1,4 +1,9 @@
 import "./ListItems.css"
+import React, { useState } from 'react';
+import { addDoc } from 'firebase/firestore';
+import { itemCollectionRef } from '../firestore-collection';
+import {collection, doc, deleteDoc} from 'firebase/firestore';
+import { db } from '../firebase';
 
 export default function ListItems({ searchResults }) {
 
@@ -31,10 +36,10 @@ export default function ListItems({ searchResults }) {
     //     }).catch(error => console.log(error.message))
     // }
 
-    // function deleteItem(id) {
-    //     const docRef = doc(db, 'items', id)
-    //     deleteDoc(docRef).then( () => console.log ('Document deleted')).catch(error => console.log(error.message))
-    // }
+    function deleteItem(id) {
+       const docRef = doc(db, 'items', id)
+        deleteDoc(docRef).then( () => console.log ('Document deleted')).catch(error => console.log(error.message))
+ }
 
     return (
         <div>
@@ -47,7 +52,7 @@ export default function ListItems({ searchResults }) {
                     </tr>
                     <tr>
                         Description: {item.data.description} 
-                        {/* <button onClick={() => deleteItem(item.id)}>delete</button> */}
+                        { <button onClick={() => deleteItem(item.id)}>delete</button> }
                     </tr>
                 </table>
             ))}

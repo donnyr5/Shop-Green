@@ -28,9 +28,9 @@ function App() {
       <div>
             
       <section>
-         {user ? <SearchBar /> : <GoogleSignIn />}
+         
+         { user ? <SearchBar email={email} /> : <GoogleSignIn />}
       </section>
-
 
         </div>
     )
@@ -45,7 +45,7 @@ function App() {
 
 
 
-function SearchBar() {
+function SearchBar(props) {
   return (
     <BrowserRouter>
     <Navbar />
