@@ -1,20 +1,21 @@
+import "./ListItems.css"
 
-export default function ListItems({searchResults}) {
+export default function ListItems({ searchResults }) {
 
 
-// useEffect(() => {           // so that it updates.  
-//     const unsubscribe = onSnapshot(data, snapshot => {
-//         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-//     })
+    // useEffect(() => {           // so that it updates.  
+    //     const unsubscribe = onSnapshot(data, snapshot => {
+    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+    //     })
 
-//     return () => {
-//         unsubscribe()
-//     }
-// }, [])
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
 
-// useEffect(() => {           //for the console only
-// console.log(items)
-// }, [items])
+    // useEffect(() => {           //for the console only
+    // console.log(items)
+    // }, [items])
 
     //used to retrieve from database. this is called when the component mounts
     // function getMovies() {  
@@ -29,7 +30,7 @@ export default function ListItems({searchResults}) {
     //             setMovies(movs)
     //     }).catch(error => console.log(error.message))
     // }
-    
+
     // function deleteItem(id) {
     //     const docRef = doc(db, 'items', id)
     //     deleteDoc(docRef).then( () => console.log ('Document deleted')).catch(error => console.log(error.message))
@@ -37,13 +38,19 @@ export default function ListItems({searchResults}) {
 
     return (
         <div>
-            <ul>
-                {searchResults && searchResults.map(item => (
-                     <li key={item.id}>{item.data.name}
-                     {/* <button onClick={() => deleteItem(item.id)}>delete</button> */}
-                     </li>
-                ))}
-            </ul>
+            {searchResults && searchResults.map(item => (
+                <table key={item.id}>
+                    <tr>
+                        <td className="name">{item.data.name}</td>
+                        <td className="price">Price: ${item.data.price}</td>
+                        <button> Purchase </button>
+                    </tr>
+                    <tr>
+                        Description: {item.data.description} 
+                        {/* <button onClick={() => deleteItem(item.id)}>delete</button> */}
+                    </tr>
+                </table>
+            ))}
         </div>
     )
 }
