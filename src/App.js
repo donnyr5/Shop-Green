@@ -52,7 +52,7 @@ function SearchBar() {
       <Routes>
         <Route path='/' element= {<Home />} />
         <Route path='/home' element = {<Home />} />
-        <Route path='/shop' element= {<Shop />} />
+        <Route path='/shop' element= {<AddItem email={email} />} />
       </Routes>
     </BrowserRouter>
   )
