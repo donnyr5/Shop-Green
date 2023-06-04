@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import PostItem from './pages/PostItem';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -54,7 +55,7 @@ function App() {
       auth.signInWithPopup(provider)}
     return (
       <>
-        <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+        <button className="sign-in" onClick={signInWithGoogle} >Sign in with Google</button>
       </>
     )
   }
@@ -107,9 +108,10 @@ function SearchBar() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        {/* <Route path='/' element={<SignIn />} /> */}
         <Route path='/home' element = {<Home />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/post' element={<PostItem email={email}/>} />
       </Routes>
     </BrowserRouter>
   )

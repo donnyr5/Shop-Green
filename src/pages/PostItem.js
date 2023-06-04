@@ -1,4 +1,6 @@
-const PostItem = () => {
+import AddItem from "../components/AddItem";
+
+const PostItem = (props) => {
     return (
         <div
                 style={{
@@ -7,7 +9,9 @@ const PostItem = () => {
                     alignItems: 'Left',
                 }}
             >
-                <AddItem />
+                <AddItem email={props.email}/>
             </div>
     )
 }
+
+export default PostItem;

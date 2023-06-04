@@ -21,6 +21,9 @@ return (
        <NavLink to='/shop' activeStyle>
            MyShop
        </NavLink>
+       <NavLink to='/post' activeStyle>
+           Post Item
+       </NavLink>
        </NavMenu>
        <NavBtn>
        <NavBtnLink to='/logout'>Logout</NavBtnLink>
