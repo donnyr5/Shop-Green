@@ -1,0 +1,27 @@
+table{
+  border: 1px solid forestgreen;
+  padding: 10px;
+  height: 100px;
+}
+
+.name{
+    border: 1px solid forestgreen;
+    padding: 10px;
+    width: 400px;
+    height: 20px
+}
+
+.price{
+    border: 1px solid forestgreen;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+

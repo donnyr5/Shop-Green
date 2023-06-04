@@ -31,6 +31,7 @@ function App() {
          {user ? <SearchBar /> : <GoogleSignIn />}
       </section>
 
+
         </div>
     )
 
