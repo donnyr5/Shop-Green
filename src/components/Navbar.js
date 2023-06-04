@@ -7,6 +7,8 @@ NavMenu,
 NavBtn,
 NavBtnLink,
 } from './NavbarElements';
+import {GoogleSignIn, GoogleSignOut, auth} from '../components/GoogleLogin';
+
 
 const Navbar = () => {
 return (
@@ -19,12 +21,10 @@ return (
            Home
        </NavLink>
        <NavLink to='/shop' activeStyle>
-           MyShop
+           List an Item
        </NavLink>
        </NavMenu>
-       <NavBtn>
-       <NavBtnLink to='/logout'>Logout</NavBtnLink>
-       </NavBtn>
+       <GoogleSignOut />
    </Nav>
    </>
 );
