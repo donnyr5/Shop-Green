@@ -36,7 +36,6 @@ function App() {
               (  getExistingUser(user.email)  ? <PostLogin email={user.email} /> : <NewUser email={user.email}/>)
             :
               <GoogleSignIn /> }
-
       </section>
 
         </div>
