@@ -53,7 +53,6 @@ export default function ListItems({ searchResults, email}) {
                 alert("Insuffecient funds: you only have $" + docu.data().balance) 
             } else {
                 updateDoc(docRef, {balance: buyerNewBalance})
-                alert("money remaining: $", buyerNewBalance)
                 pass = pass+1;
             }
         })
