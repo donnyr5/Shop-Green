@@ -13,19 +13,29 @@ export default function AddItem(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        if (name === '' || price === '' || price < 0 || description === '') {
-            alert("invalid entry!")
+
+        if (name === '' || price < 0 || description === '' ||  price === '' || price === "NaN") {
+            alert("Invalid Entry! Name: nonempty, Price: positive integer, Description: nonempty.")
+            setPrice('')
+            return
+        }   
+        var str = price.toString();
+        if (str === "" || str === null || str === "NaN"){
+            alert("Invalid Entry! Name: nonempty, Price: positive integer, Description: nonempty.")
+            setPrice('')
             return
         }
+        
         const itemsCollRef = collection(db, 'items')
         addDoc(itemsCollRef, { name, price, description, owner}).then(response => { 
-            console.log(response) 
+            console.log(price) 
         }).catch(error => {
             console.log(error.message)
         })
         setName('')
         setPrice('')
         setDescription('')
+        alert("Item posted to Shop Green!")
     }
     return (
         <div>
@@ -34,7 +44,7 @@ export default function AddItem(props) {
                 <label htmlFor='name'> </label>
                 <input id='name' type="text" value={name} onChange={e => setName(e.target.value)} /> name
                 <div />
-                <input id='price' type="text" value={price} onChange={e => setPrice(parseInt (e.target.value) )} /> price
+                <input id='price' type="number" value={price} onChange={e => setPrice(parseInt(e.target.value))  } /> price: positive integer.
                 <div />
                 <input id='description' type="text" value={description} onChange={e => setDescription(e.target.value)} /> description
                 <div />

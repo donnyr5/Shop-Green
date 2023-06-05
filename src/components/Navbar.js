@@ -19,13 +19,12 @@ return (
    <>
    <Nav>
        <Bars />
-
        <NavMenu>
-       <NavLink to='/' activeStyle>
+       <NavLink to='' activeStyle>
            Home
        </NavLink>
-       <NavLink to='/shop' activeStyle>
-           List an Item
+       <NavLink to='/shop' >
+           Post 
        </NavLink>
        <ShowBalance email={email} />
        </NavMenu>
@@ -37,22 +36,19 @@ return (
 
 function ShowBalance({email}){
 
-const [balance, setBalance] = useState('')
-
 const q = query(collection(db, "users"), where("email", "==", email));
-
 const [querySnapshot,setQuerySnapshot] = useState('')
 
 useEffect(() => {           // so that it updates.  
     const unsubscribe = onSnapshot(q, snapshot => {
         setQuerySnapshot(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
     })
-
     return () => {
         unsubscribe()
     }
 }, [])
 
+//handles asynchronous query processing to refresh all the time
 useEffect(() => {
     getDocs(q)
     .then(response => {
@@ -71,19 +67,6 @@ return(
         <Button2>Current Balance: {user.data.balance}</Button2>
     ))
 )
-
 }
-
-
-// async function fetchBalance(email){
-    
-//     const [balance, setBalance] = useState('')
-//     const buyer = query(userCollectionRef, where("email", "==", email))
-//     const querySnapshot = await getDocs(buyer)
-//     querySnapshot.forEach(docu => {
-//         const docRef = doc(db, 'users', docu.id)
-//         setBalance(docu.data().balance)
-//     })
-// }
 
  export default Navbar;

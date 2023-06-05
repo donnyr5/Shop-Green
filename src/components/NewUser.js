@@ -85,7 +85,7 @@ function PostLogin(props) {
       <BrowserRouter>
       <Navbar email={props.email}/>
         <Routes>
-          <Route path='/' element= {<Home email={props.email}/>} />
+          <Route path='' element= {<Home email={props.email}/>} />
           <Route path='/shop' element= {<AddItem email={props.email} />} />
         </Routes>
       </BrowserRouter>
