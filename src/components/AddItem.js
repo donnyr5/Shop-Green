@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
-import { itemCollectionRef } from '../firestore-collection';
 import {collection} from 'firebase/firestore';
 import { db } from '../firebase';
 
 export default function AddItem(props) {
     const [name, setName] = useState('')
-    const [price, setPrice] = useState()
+    const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
     let owner = props.email;
-    console.log(props.email);
+    // console.log(props.email);
 
 
     function handleSubmit(e) {
         e.preventDefault()
         if (name === '' || price === '' || price < 0 || description === '') {
-            console.log("invalid entry!")
+            alert("invalid entry!")
             return
         }
         const itemsCollRef = collection(db, 'items')
