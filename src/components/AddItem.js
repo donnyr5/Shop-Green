@@ -34,7 +34,7 @@ export default function AddItem(props) {
                 <label htmlFor='name'> </label>
                 <input id='name' type="text" value={name} onChange={e => setName(e.target.value)} /> name
                 <div />
-                <input id='price' type="number" value={price} onChange={e => setPrice(parseInt (e.target.value) )} /> price
+                <input id='price' type="text" value={price} onChange={e => setPrice(parseInt (e.target.value) )} /> price
                 <div />
                 <input id='description' type="text" value={description} onChange={e => setDescription(e.target.value)} /> description
                 <div />
