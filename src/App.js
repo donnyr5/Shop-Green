@@ -6,6 +6,7 @@ import ListItems from './components/ListItems';
 import AddItem from './components/AddItem';
 import {GoogleSignIn, GoogleSignOut} from './components/GoogleLogin';
 import {useState, useEffect} from 'react';
+import NewUser, { getExistingUser } from './components/NewUser';
 
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -24,24 +25,22 @@ function App() {
     //this is if the user is logged in.
     return (
       <div>
-            
+          
       <section>
-         
-         { user ? <PostLogin email={user.email} /> : <GoogleSignIn />}
+
+         { /* if user is new to the website, take them to a newUser page first */ }
+         {user ? console.log(getExistingUser(user.email)) : console.log("")
+         /* MAKE THIS RETURN AS A BOOLEAN, NOT A PROMISE!!!*/}
+
+          { user ? 
+              (  getExistingUser(user.email)  ? <PostLogin email={user.email} /> : <NewUser email={user.email}/>)
+            :
+              <GoogleSignIn /> }
+
       </section>
 
         </div>
     )
-
-         //<button onClick={props.toggleIsPosting}>Go Back</button>
-         //</main> <AddItem email={email}/>
-
-
-
-
-     // isPosting ? <PostingItem toggleIsPosting={toggleIsPosting} email={email} /> : <Marketplace toggleIsPosting={toggleIsPosting} />
-
-
 
 function PostLogin(props) {
   return (
