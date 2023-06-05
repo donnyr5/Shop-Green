@@ -41,7 +41,6 @@ const Button2 = styled.button`
     const signInWithGoogle = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       auth.signInWithPopup(provider)}
-      
     return (
       <>
         <Button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button>
