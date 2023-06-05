@@ -6,7 +6,7 @@ import Searchbar from '../components/Searchbar';
 import { itemCollectionRef } from '../firestore-collection';
 
 
-const Home = () => {
+const Home = (props) => {
     const [items, setItems] = useState([])
     const [searchResults, setSearchResults] = useState([])
 
@@ -49,7 +49,7 @@ const Home = () => {
                     alignItems: 'Center',
                 }}
             >
-                <ListItems searchResults={searchResults} />
+                <ListItems searchResults={searchResults} email={props.email}/>
             </div>
             <div
                 style={{

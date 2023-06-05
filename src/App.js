@@ -21,15 +21,13 @@ function App() {
   const [user] = useAuthState(auth);
   const [email] = useState( (user) ? user.email : "");  //if user is null, set to empty string.
 
-
-
     //this is if the user is logged in.
     return (
       <div>
             
       <section>
          
-         { user ? <SearchBar email={email} /> : <GoogleSignIn />}
+         { user ? <PostLogin email={user.email} /> : <GoogleSignIn />}
       </section>
 
         </div>
@@ -45,14 +43,13 @@ function App() {
 
 
 
-function SearchBar(props) {
+function PostLogin(props) {
   return (
     <BrowserRouter>
     <Navbar />
       <Routes>
-        <Route path='/' element= {<Home />} />
-        <Route path='/home' element = {<Home />} />
-        <Route path='/shop' element= {<AddItem email={email} />} />
+        <Route path='/' element= {<Home email={props.email}/>} />
+        <Route path='/shop' element= {<AddItem email={props.email} />} />
       </Routes>
     </BrowserRouter>
   )

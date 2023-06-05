@@ -5,7 +5,7 @@ import { itemCollectionRef } from '../firestore-collection';
 import {collection, doc, deleteDoc} from 'firebase/firestore';
 import { db } from '../firebase';
 
-export default function ListItems({ searchResults }) {
+export default function ListItems({ searchResults, email}) {
 
 
     // useEffect(() => {           // so that it updates.  
@@ -48,11 +48,11 @@ export default function ListItems({ searchResults }) {
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        <button> Purchase </button>
+                        {(email === item.data.owner) ? <button onClick={() => deleteItem(item.id)}>Delete</button> : <button> Purchase </button>}
+                        
                     </tr>
                     <tr>
                         Description: {item.data.description} 
-                        { <button onClick={() => deleteItem(item.id)}>delete</button> }
                     </tr>
                 </table>
             ))}
