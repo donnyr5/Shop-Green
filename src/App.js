@@ -4,12 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import ListItems from './components/ListItems';
 import AddItem from './components/AddItem';
-<<<<<<< HEAD
-import { GoogleSignIn, GoogleSignOut } from './components/GoogleLogin';
-=======
 import {GoogleSignIn, GoogleSignOut} from './components/GoogleLogin';
-import {useState, useEffect} from 'react';
->>>>>>> promise-bool
 import NewUser from './components/NewUser';
 
 import Navbar from './components/Navbar';
