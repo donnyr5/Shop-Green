@@ -15,7 +15,7 @@ firebase.initializeApp({
   export const auth = firebase.auth();
 
 
-  const Button = styled.button`
+export const Button = styled.button`
   background-color: black;
   color: white;
   font-size: 20px;
@@ -25,13 +25,14 @@ firebase.initializeApp({
   cursor: pointer;
 `;
 
-const Button2 = styled.button`
+export const Button2 = styled.button`
   background-color: black;
   color: white;
-  font-size: 12px;
-  padding: 10px 60px;
+  font-size: 14px;
+
+  padding: 10px 10px;
   border-radius: 5px;
-  margin: 10px 0px;
+  margin: 5px 5px;
   cursor: pointer;
 `;
 

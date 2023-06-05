@@ -43,27 +43,33 @@ export default function ListItems({ searchResults, email}) {
 
     async function purchaseItem(email, item){
     
+        let pass = 0;
         const buyer = query(userCollectionRef, where("email", "==", email))
         const querySnapshot = await getDocs(buyer)
         querySnapshot.forEach(docu => {
             const docRef = doc(db, 'users', docu.id)
             const buyerNewBalance = docu.data().balance - item.data.price
-            if (buyerNewBalance < 0) 
-                alert("Not enough balance") 
-            else 
+            if (buyerNewBalance < 0) {
+                alert("Insuffecient funds: you only have $" + docu.data().balance) 
+            } else {
                 updateDoc(docRef, {balance: buyerNewBalance})
+                alert("money remaining: $", buyerNewBalance)
+                pass = pass+1;
+            }
         })
         
-        const seller = query(userCollectionRef, where("email", "==", item.data.owner))
+        if (pass)   //if buyer has enough money,
+    {   const seller = query(userCollectionRef, where("email", "==", item.data.owner))
         const querySnapShot = await getDocs(seller)
         querySnapShot.forEach(docu => {
             const docRef = doc(db, 'users', docu.id)
             const sellerNewBalance = docu.data().balance + item.data.price
             updateDoc(docRef, {balance: sellerNewBalance})
+        
         }) 
-
-        //need to remove item from databse + add it to history of buyer.
-        deleteItem(item.id);
+         //need to remove item from databse + add it to history of buyer.
+         deleteItem(item.id);
+    }
     }
 
     return (

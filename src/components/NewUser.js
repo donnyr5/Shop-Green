@@ -19,8 +19,6 @@ export default function NewUser(props){
 
     const [querySnapshot,setQuerySnapshot] = useState('')
 
-
-
     useEffect(() => {           // so that it updates.  
         const unsubscribe = onSnapshot(q, snapshot => {
             setQuerySnapshot(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
@@ -85,7 +83,7 @@ return (
 function PostLogin(props) {
     return (
       <BrowserRouter>
-      <Navbar />
+      <Navbar email={props.email}/>
         <Routes>
           <Route path='/' element= {<Home email={props.email}/>} />
           <Route path='/shop' element= {<AddItem email={props.email} />} />
