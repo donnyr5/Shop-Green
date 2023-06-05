@@ -1,7 +1,7 @@
 import "./ListItems.css"
 import React, { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
-import { itemCollectionRef } from '../firestore-collection';
+import { userCollectionRef } from '../firestore-collection';
 import {collection, doc, deleteDoc} from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -39,7 +39,13 @@ export default function ListItems({ searchResults, email}) {
     function deleteItem(id) {
        const docRef = doc(db, 'items', id)
         deleteDoc(docRef).then( () => console.log ('Document deleted')).catch(error => console.log(error.message))
- }
+    }
+    function purchaseItem(email){
+       
+
+    }
+
+    
 
     return (
         <div>
@@ -48,12 +54,13 @@ export default function ListItems({ searchResults, email}) {
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        {(email === item.data.owner) ? <button onClick={() => deleteItem(item.id)}>Delete</button> : <button> Purchase </button>}
+                        {(email === item.data.owner) ? <button onClick={() => deleteItem(item.id)}>Delete</button> : <button onClick={() => purchaseItem(email)}> Purchase </button>}
                         
                     </tr>
                     <tr>
                         Description: {item.data.description} 
                     </tr>
+                    <tr>Posted by: {item.data.owner}</tr>
                 </table>
             ))}
         </div>
