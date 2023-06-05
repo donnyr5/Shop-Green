@@ -29,7 +29,7 @@ export default function ListItems({ searchResults, email}) {
     //         .then(response => {
     //             console.log(response.docs)
     //             const movs = response.docs.map(doc => ({
-    //                 data: doc.data(), //data is the data, where as ID is the 'document' in firebase
+    //                 data: doc.data(), 
     //                 id: doc.id,
     //             }))
     //             setMovies(movs)

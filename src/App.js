@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import ListItems from './components/ListItems';
 import AddItem from './components/AddItem';
 import {GoogleSignIn, GoogleSignOut} from './components/GoogleLogin';
-import {useState, useEffect} from 'react';
+import NewUser, { existingUser } from './components/NewUser';
 
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -15,33 +15,27 @@ import Shop from './pages/Shop';
 import { auth } from './components/GoogleLogin';
 
 
+
 function App() {
 
-  
   const [user] = useAuthState(auth);
-  const [email] = useState( (user) ? user.email : "");  //if user is null, set to empty string.
 
     //this is if the user is logged in.
     return (
       <div>
             
       <section>
-         
-         { user ? <PostLogin email={user.email} /> : <GoogleSignIn />}
+         { /* if user is new to the website, take them to a newUser page first */}
+          { user ? 
+              ( existingUser(user.email) ? <PostLogin email={user.email} /> : <NewUser email={user.email}/>)
+            :
+              <GoogleSignIn /> }
+
+      
       </section>
 
         </div>
     )
-
-         //<button onClick={props.toggleIsPosting}>Go Back</button>
-         //</main> <AddItem email={email}/>
-
-
-
-
-     // isPosting ? <PostingItem toggleIsPosting={toggleIsPosting} email={email} /> : <Marketplace toggleIsPosting={toggleIsPosting} />
-
-
 
 function PostLogin(props) {
   return (
@@ -54,10 +48,7 @@ function PostLogin(props) {
     </BrowserRouter>
   )
 }
-
-
 }
-
 
 export default App;
 
