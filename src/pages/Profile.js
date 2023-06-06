@@ -6,6 +6,7 @@ import SellingHistory from '../components/SellingHistory';
 import PurchaseHistory from '../components/PurchaseHistory';
 import Listings from '../components/Listings';
 
+
 const Profile = (props) => {
     const [items, setItems] = useState([])
     const [option, setOption] = useState([])

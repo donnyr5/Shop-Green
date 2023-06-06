@@ -23,10 +23,14 @@ const Home = (props) => {
         getDocs(itemCollectionRef)
         .then(response => {
             console.log(response.docs)
-            const itms = response.docs.map(doc => ({
+            let itms = response.docs.map(doc => ({
                 data: doc.data(),
                 id: doc.id,
             }))
+            itms = itms.filter(item => {
+                console.log(item.data.owner)
+                return item.data.owner !== props.email
+            })
             setItems(itms)
             setSearchResults(itms)
         }).catch(error => console.log(error.message))

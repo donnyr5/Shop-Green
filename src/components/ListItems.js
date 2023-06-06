@@ -6,14 +6,11 @@ import {collection, doc, deleteDoc, getDocs, updateDoc, query, where, serverTime
 import { db } from '../firebase';
 import { Button2 } from "./GoogleLogin";
 import { getCurrentDate } from "./getCurrentDate";
-import moment from "moment";
+import deleteItem from "./DeleteItem";
+
 
 export default function ListItems({ searchResults, email}) {
 
-    function deleteItem(id) {
-       const docRef = doc(db, 'items', id)
-        deleteDoc(docRef).then( () => console.log ('Document deleted')).catch(error => console.log(error.message))
-    }
 
     async function purchaseItem(email, item){
     
@@ -49,7 +46,6 @@ export default function ListItems({ searchResults, email}) {
          alert("Purchase Successful!")
     }
     }
-
     return (
         <div>
             {searchResults && searchResults.map(item => (
@@ -57,7 +53,7 @@ export default function ListItems({ searchResults, email}) {
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        {(email === item.data.owner) ? <Button2 onClick={() => deleteItem(item.id)}>Delete</Button2> : <Button2 onClick={() => purchaseItem(email, item)}> Purchase </Button2>}
+                        {<Button2 onClick={() => purchaseItem(email, item)}> Purchase </Button2>}
                         
                     </tr>
                     <tr>

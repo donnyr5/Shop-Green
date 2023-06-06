@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { ShowBalance } from './Navbar';
 import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
 import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
+import { Button2 } from './GoogleLogin';
+import deleteItem from './DeleteItem';
 
 export default function Listings({email, items, setItems}) {
+
+
     const q = query(itemCollectionRef, where("owner", "==", email))
 
     // useEffect(() => {           // so that it updates.  
@@ -36,12 +40,11 @@ export default function Listings({email, items, setItems}) {
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        
+                        <Button2 onClick={() => deleteItem(item.id)}>Delete</Button2>
                     </tr>
                     <tr>
                         Description: {item.data.description} 
                     </tr>
-                    <tr>Posted by: {item.data.owner}</tr>
                 </table>
             ))}
             </div>
