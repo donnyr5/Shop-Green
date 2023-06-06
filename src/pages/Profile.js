@@ -64,6 +64,7 @@ const Profile = (props) => {
     // }
 
     const handleChange = (event)=> {
+        setItems([])
         setOption(event.target.value)
     }
 
