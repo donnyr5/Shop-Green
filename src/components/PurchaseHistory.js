@@ -41,7 +41,7 @@ export default function PurchaseHistory({email, items, setItems}) {
                     <tr>
                         Description: {item.data.description} 
                     </tr>
-                    {/* <tr>Time of Purchase: {item.data.timeOfPurchase}</tr> */}
+                    <tr>Time of Purchase: {new Date(item.data.timeOfPurchase.seconds*1000).toLocaleString("en-US")}</tr>
                 </table>
             ))}
             </div>
