@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { ShowBalance } from '../components/Navbar';
 import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
 import {collection, doc, deleteDoc, getDocs, updateDoc, query, where} from 'firebase/firestore';
-import SellingHistory from '../components/SellingHistory';
-import PurchaseHistory from '../components/PurchaseHistory';
-import Listings from '../components/Listings';
+import SellingHistory from '../components/History/SellingHistory';
+import PurchaseHistory from '../components/History/PurchaseHistory';
+import Listings from '../components/History/Listings';
 
 const Profile = (props) => {
     const [items, setItems] = useState([])

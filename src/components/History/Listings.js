@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { ShowBalance } from './Navbar';
-import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
+import { ShowBalance } from '../Navbar';
+import { itemCollectionRef, histCollectionRef } from '../../firestore-collection';
 import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
 
-export default function SellingHistory({email, items, setItems}) {
-    const q = query(histCollectionRef, where("seller", "==", email))
+export default function Listings({email, items, setItems}) {
+    const q = query(itemCollectionRef, where("owner", "==", email))
 
-    // useEffect(() => {           // so that it updates.  
-    //     const unsubscribe = onSnapshot(histCollectionRef, snapshot => {
-    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    //     })
-    //     return () => {
-    //         unsubscribe()
-    //     }
-    // }, [])
+    useEffect(() => {           // so that it updates.  
+        const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
+            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+        })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -29,7 +29,7 @@ export default function SellingHistory({email, items, setItems}) {
 
     return (
         <>
-        <h1>Selling History</h1>
+        <h1>Listings</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>
@@ -41,7 +41,7 @@ export default function SellingHistory({email, items, setItems}) {
                     <tr>
                         Description: {item.data.description} 
                     </tr>
-                    <tr>Time of Purchase: {new Date(item.data.timeOfPurchase.seconds*1000).toLocaleString("en-US")}</tr>
+                    <tr>Posted by: {item.data.owner}</tr>
                 </table>
             ))}
             </div>
