@@ -7,7 +7,7 @@ import AddItem from './components/AddItem';
 import {GoogleSignIn, GoogleSignOut} from './components/GoogleLogin';
 import NewUser from './components/NewUser';
 
-import Navbar from './components/Navbar';
+import {Navbar2} from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -22,7 +22,7 @@ function App() {
 
     return (
       <section>
-          { user ? <NewUser email={user.email}/> : <GoogleSignIn /> }
+          { user ? <NewUser email={user.email}/> : <BrowserRouter> <Navbar2/> </BrowserRouter> }
       </section>
     )
 }

@@ -1,16 +1,7 @@
 import "./Searchbar.css"
+import { ShowBalance } from "./Navbar";
 
-const Searchbar = ({ items, setSearchResults }) => {
-
-    // getDocs(itemCollectionRef)
-    //     .then(response => {
-    //         console.log(response.docs)
-    //         const itms = response.docs.map(doc => ({
-    //             data: doc.data(),
-    //             id: doc.id,
-    //         }))
-    //         setItems(itms)
-    //     }).catch(error => console.log(error.message))
+const Searchbar = ({ items, setSearchResults, email}) => {
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -24,6 +15,7 @@ const Searchbar = ({ items, setSearchResults }) => {
 
 return (
     <div className="search">
+            <ShowBalance email={email} />
             <input
                 type="text"
                 placeholder="Search"

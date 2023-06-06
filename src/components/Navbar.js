@@ -12,7 +12,12 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { userCollectionRef } from '../firestore-collection';
 import {Button2} from '../components/GoogleLogin';
+import styled from "styled-components";
 
+
+const title = styled.h1`
+font-size: 1.5em;
+`
 
 const Navbar = ({email}) => {
 return (
@@ -26,15 +31,36 @@ return (
        <NavLink to='/shop' >
            Post 
        </NavLink>
-       <ShowBalance email={email} />
        </NavMenu>
+       <h3>Shop Green</h3>
        <GoogleSignOut />
    </Nav>
    </>
 );
 };
 
-function ShowBalance({email}){
+export function Navbar2 () {
+    return(
+        <>
+        <Nav>
+            <Bars />
+            <NavMenu>
+            <NavLink>
+                Home
+            </NavLink>
+            <NavLink>
+                Post
+            </NavLink>
+            </NavMenu>
+            <h3>Shop Green</h3>
+            <GoogleSignIn />
+        </Nav>
+        <h4> Please Sign in with Google to Continue.</h4>
+        </>
+    )
+}
+
+export function ShowBalance({email}){
 
 const q = query(collection(db, "users"), where("email", "==", email));
 const [querySnapshot,setQuerySnapshot] = useState('')
@@ -64,7 +90,7 @@ useEffect(() => {
 
 return(
     querySnapshot && querySnapshot.map(user => (
-        <Button2>Current Balance: {user.data.balance}</Button2>
+        <p>Current Balance: ${user.data.balance}.00</p>
     ))
 )
 }

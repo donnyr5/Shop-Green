@@ -29,7 +29,6 @@ export const Button2 = styled.button`
   background-color: black;
   color: white;
   font-size: 14px;
-
   padding: 10px 10px;
   border-radius: 5px;
   margin: 5px 5px;
@@ -44,7 +43,7 @@ export const Button2 = styled.button`
       auth.signInWithPopup(provider)}
     return (
       <>
-        <Button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button>
+        <Button2 className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button2>
       </>
     )
   }

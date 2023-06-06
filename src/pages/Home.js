@@ -40,7 +40,7 @@ const Home = (props) => {
                     justifyContent: 'Center',
                     alignItems: 'Center',
                 }}>
-                <Searchbar items={items} setSearchResults={setSearchResults}/>
+                <Searchbar email={props.email} items={items} setSearchResults={setSearchResults}/>
             </div>
             <div
                 style={{

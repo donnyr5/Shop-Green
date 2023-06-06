@@ -4,37 +4,9 @@ import { addDoc } from 'firebase/firestore';
 import { itemCollectionRef, userCollectionRef } from '../firestore-collection';
 import {collection, doc, deleteDoc, getDocs, updateDoc, query, where} from 'firebase/firestore';
 import { db } from '../firebase';
+import { Button2 } from "./GoogleLogin";
 
 export default function ListItems({ searchResults, email}) {
-
-
-    // useEffect(() => {           // so that it updates.  
-    //     const unsubscribe = onSnapshot(data, snapshot => {
-    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    //     })
-
-    //     return () => {
-    //         unsubscribe()
-    //     }
-    // }, [])
-
-    // useEffect(() => {           //for the console only
-    // console.log(items)
-    // }, [items])
-
-    //used to retrieve from database. this is called when the component mounts
-    // function getMovies() {  
-    //     const movieCollectionRef = collection(db, 'movies');
-    //     getDocs(movieCollectionRef)
-    //         .then(response => {
-    //             console.log(response.docs)
-    //             const movs = response.docs.map(doc => ({
-    //                 data: doc.data(), 
-    //                 id: doc.id,
-    //             }))
-    //             setMovies(movs)
-    //     }).catch(error => console.log(error.message))
-    // }
 
     function deleteItem(id) {
        const docRef = doc(db, 'items', id)
@@ -68,6 +40,7 @@ export default function ListItems({ searchResults, email}) {
         }) 
          //need to remove item from databse + add it to history of buyer.
          deleteItem(item.id);
+         alert("Purchase Successful!")
     }
     }
 
@@ -78,7 +51,7 @@ export default function ListItems({ searchResults, email}) {
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        {(email === item.data.owner) ? <button onClick={() => deleteItem(item.id)}>Delete</button> : <button onClick={() => purchaseItem(email, item)}> Purchase </button>}
+                        {(email === item.data.owner) ? <Button2 onClick={() => deleteItem(item.id)}>Delete</Button2> : <Button2 onClick={() => purchaseItem(email, item)}> Purchase </Button2>}
                         
                     </tr>
                     <tr>
