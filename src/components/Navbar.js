@@ -15,11 +15,17 @@ import {Button2} from '../components/GoogleLogin';
 import styled from "styled-components";
 import {LandingImage} from './LandingImage';
 
+const Title2 = styled.h1`
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Eczar', serif;
+  margin: 0px;
+`;
 const Title = styled.h1`
   font-size: 2em;
   text-align: center;
   font-family: 'Eczar', serif;
-  margin: 0px 0px;
+  margin: 0px 170px 0px 0px;
 `;
 
 const Navbar = ({email}) => {
@@ -67,7 +73,7 @@ export function Navbar2 () {
                 Profile
             </NavLink>
             </NavMenu>
-            <Title >Shop Green</Title>
+            <Title2 >Shop Green</Title2>
             <GoogleSignIn />
         </Nav>
         <LandingImage />

@@ -1,3 +1,8 @@
+.aboutText {
+  margin: 0px 300px 40px;
+  font-size: larger;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

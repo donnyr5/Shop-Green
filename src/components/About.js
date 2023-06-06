@@ -6,7 +6,7 @@ export function About() {
             <h1>SHOP GREEN
                 <br></br>
                 Transform Your Landscape with Ease and Sustainability</h1>
-            <body>
+            <body class="aboutText">
                 <p>Welcome to Shop Green, where your landscape dreams come to life while upholding
                      the principles of environmental consciousness. Imagine you've recently acquired 
                      a house with a desert-inspired yard, adorned with cacti and shrubs. However, your 
