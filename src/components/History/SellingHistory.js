@@ -7,7 +7,7 @@ export default function SellingHistory({email, items, setItems}) {
     const q = query(histCollectionRef, where("seller", "==", email))
 
     useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(histCollectionRef, snapshot => {
+        const unsubscribe = onSnapshot(q, snapshot => {
             setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
         })
         return () => {
