@@ -1,7 +1,7 @@
 import "./ListItems.css"
 import React, { useState } from 'react';
-import { addDoc } from 'firebase/firestore';
-import { itemCollectionRef, userCollectionRef } from '../firestore-collection';
+import { addDoc, serverTimestamp } from 'firebase/firestore';
+import { itemCollectionRef, userCollectionRef, histCollectionRef } from '../firestore-collection';
 import {collection, doc, deleteDoc, getDocs, updateDoc, query, where} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Button2 } from "./GoogleLogin";
@@ -34,11 +34,11 @@ export default function ListItems({ searchResults, email}) {
         const querySnapShot = await getDocs(seller)
         querySnapShot.forEach(docu => {
             const docRef = doc(db, 'users', docu.id)
-            const sellerNewBalance = docu.data().balance + item.data.price
+            const sellerNewBalance = docu.data().balance + item.data.prices
             updateDoc(docRef, {balance: sellerNewBalance})
-        
         }) 
          //need to remove item from databse + add it to history of buyer.
+         addDoc(histCollectionRef, { name: item.data.name, description: item.data.description, price: item.data.price, seller: item.data.owner, buyer: email, timeOfPurchase: serverTimestamp() })
          deleteItem(item.id);
          alert("Purchase Successful!")
     }

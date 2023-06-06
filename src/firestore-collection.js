@@ -3,3 +3,4 @@ import { db } from "./firebase";
 
 export const itemCollectionRef = collection(db, 'items');
 export const userCollectionRef = collection(db, 'users');
+export const histCollectionRef = collection(db, 'history');

@@ -28,9 +28,12 @@ return (
        <NavLink to='' activeStyle>
            Home
        </NavLink>
-       <NavLink to='/shop' >
+       <NavLink to='/post' >
            Post 
        </NavLink>
+       <NavLink to='/profile'>
+           Profile
+        </NavLink>
        </NavMenu>
        <h3>Shop Green</h3>
        <GoogleSignOut />
@@ -50,6 +53,9 @@ export function Navbar2 () {
             </NavLink>
             <NavLink>
                 Post
+            </NavLink>
+            <NavLink>
+                Profile
             </NavLink>
             </NavMenu>
             <h3>Shop Green</h3>
