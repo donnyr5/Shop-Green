@@ -43,7 +43,7 @@ export const Button2 = styled.button`
       auth.signInWithPopup(provider)}
     return (
       <>
-        <Button2 className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button2>
+        <Button2 className="sign-in" onClick={signInWithGoogle}>Login with Google to Continue</Button2>
       </>
     )
   }
