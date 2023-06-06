@@ -4,10 +4,11 @@ import { itemCollectionRef, histCollectionRef } from '../../firestore-collection
 import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
 
 export default function PurchaseHistory({email, items, setItems}) {
+
     const q = query(histCollectionRef, where("buyer", "==", email))
 
     useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(histCollectionRef, snapshot => {
+        const unsubscribe = onSnapshot(q, snapshot => {
             setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
         })
         return () => {
