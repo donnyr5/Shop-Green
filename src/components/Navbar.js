@@ -13,11 +13,20 @@ import { db } from '../firebase';
 import { userCollectionRef } from '../firestore-collection';
 import {Button2} from '../components/GoogleLogin';
 import styled from "styled-components";
+import {LandingImage} from './LandingImage';
 
-
-const title = styled.h1`
-font-size: 1.5em;
-`
+const Title2 = styled.h1`
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Eczar', serif;
+  margin: 0px;
+`;
+const Title = styled.h1`
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Eczar', serif;
+  margin: 0px 170px 0px 0px;
+`;
 
 const Navbar = ({email}) => {
 return (
@@ -31,11 +40,14 @@ return (
        <NavLink to='/post' >
            Post 
        </NavLink>
+       <NavLink to='/about' >
+            About  
+         </NavLink>
        <NavLink to='/profile'>
            Profile
         </NavLink>
        </NavMenu>
-       <h3>Shop Green</h3>
+       <Title >Shop Green</Title>
        <GoogleSignOut />
    </Nav>
    </>
@@ -54,14 +66,17 @@ export function Navbar2 () {
             <NavLink>
                 Post
             </NavLink>
+             <NavLink >
+                About  
+             </NavLink>
             <NavLink>
                 Profile
             </NavLink>
             </NavMenu>
-            <h3>Shop Green</h3>
+            <Title2 >Shop Green</Title2>
             <GoogleSignIn />
         </Nav>
-        <h4> Please Sign in with Google to Continue.</h4>
+        <LandingImage />
         </>
     )
 }

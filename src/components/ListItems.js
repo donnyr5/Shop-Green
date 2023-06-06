@@ -5,8 +5,8 @@ import { itemCollectionRef, userCollectionRef, histCollectionRef } from '../fire
 import {collection, doc, deleteDoc, getDocs, updateDoc, query, where, serverTimestamp} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Button2 } from "./GoogleLogin";
-import { getCurrentDate } from "./getCurrentDate";
-import deleteItem from "./DeleteItem";
+import { getCurrentDate } from "./History/getCurrentDate";
+//import deleteItem from "./DeleteItem";
 
 
 export default function ListItems({ searchResults, email}) {

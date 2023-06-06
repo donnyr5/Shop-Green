@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import ListItems from './components/ListItems';
-import AddItem from './components/AddItem';
-import {GoogleSignIn, GoogleSignOut} from './components/GoogleLogin';
 import NewUser from './components/NewUser';
 
 import {Navbar2} from './components/Navbar';

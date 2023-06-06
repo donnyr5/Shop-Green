@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ShowBalance } from './Navbar';
-import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
+import { ShowBalance } from '../Navbar';
+import { itemCollectionRef, histCollectionRef } from '../../firestore-collection';
 import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
-import { Button2 } from './GoogleLogin';
-import deleteItem from './DeleteItem';
 
-export default function Listings({email, items, setItems}) {
+export default function PurchaseHistory({email, items, setItems}) {
 
+    const q = query(histCollectionRef, where("buyer", "==", email))
 
-    const q = query(itemCollectionRef, where("owner", "==", email))
-
-    // useEffect(() => {           // so that it updates.  
-    //     const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
-    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    //     })
-    //     return () => {
-    //         unsubscribe()
-    //     }
-    // }, [])
+    useEffect(() => {           // so that it updates.  
+        const unsubscribe = onSnapshot(q, snapshot => {
+            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+        })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -33,17 +30,21 @@ export default function Listings({email, items, setItems}) {
 
     return (
         <>
-        <h1>Listings</h1>
+        <h1>Purchase History</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>
                     <tr>
                         <td className="name">{item.data.name}</td>
                         <td className="price">Price: ${item.data.price}</td>
-                        <Button2 onClick={() => deleteItem(item.id)}>Delete</Button2>
+                        
                     </tr>
                     <tr>
                         Description: {item.data.description} 
+                    </tr>
+                    <tr>Time of Purchase: {new Date(item.data.timeOfPurchase.seconds*1000).toLocaleString("en-US")}</tr>
+                    <tr>
+                        Purchased from: {item.data.seller}
                     </tr>
                 </table>
             ))}

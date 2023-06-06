@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { ShowBalance } from './Navbar';
-import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
+import { ShowBalance } from '../Navbar';
+import { itemCollectionRef, histCollectionRef } from '../../firestore-collection';
 import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
 
 export default function SellingHistory({email, items, setItems}) {
     const q = query(histCollectionRef, where("seller", "==", email))
 
-    // useEffect(() => {           // so that it updates.  
-    //     const unsubscribe = onSnapshot(histCollectionRef, snapshot => {
-    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    //     })
-    //     return () => {
-    //         unsubscribe()
-    //     }
-    // }, [])
+    useEffect(() => {           // so that it updates.  
+        const unsubscribe = onSnapshot(q, snapshot => {
+            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+        })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -42,6 +42,9 @@ export default function SellingHistory({email, items, setItems}) {
                         Description: {item.data.description} 
                     </tr>
                     <tr>Time of Purchase: {new Date(item.data.timeOfPurchase.seconds*1000).toLocaleString("en-US")}</tr>
+                    <tr>
+                        Sold to: {item.data.buyer}
+                    </tr>
                 </table>
             ))}
             </div>

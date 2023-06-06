@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home';
 import AddItem from '../components/AddItem';
+import { About } from './About';
 import Profile from '../pages/Profile';
 
 export default function NewUser(props){
@@ -87,6 +88,7 @@ function PostLogin(props) {
       <Navbar email={props.email}/>
         <Routes>
           <Route path='' element= {<Home email={props.email}/>} />
+          <Route path='/about' element= {<About />} />
           <Route path='/post' element= {<AddItem email={props.email} />} />
           <Route path='/profile' element = {<Profile email={props.email} />}/>
         </Routes>
