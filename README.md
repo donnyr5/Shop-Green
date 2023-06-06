@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+## Motivation 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Imagine you bought a house that is landscaped like a desert, with cactus and small shrubs dotting the yard, and you want to redo it to look like a rainforest. Rather than wasting perfecty good plants by simply removing and discarding them, you could instead sell them on Shop Green to someone looking to purchase cactus for their mojave-themed backyard. And rather than driving to the Home Depot to purchase expensive, or highly exotic tropical plants for your garden that might not be in stock, you could buy them from Shop Green. This revolutionary app will save time, money, and the planet!
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Shop Green is ran with Firebase, so there is a cloud database already existing. 
 
-### `npm run build` fails to minify
+To access the application, Open terminal and clone this databse into a folder on your desktop
+### `$ git clone  https://github.com/donnyr5/Shop-Green.git`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm].
+
+To install the necessary dependencies, run
+### `$ npm install react-firebase-hooks firebase react-router-dom styled-components`
+
+To build it, run
+### `$ npm install`
+
+To run the application on your browser (default is port 3000), run
+### `$ npm start`
+
+### How to use Shop Green
+
+At this point you should see the start screen with a button to login. Only users who have logged into with their Google credentials will be able to used the app. Because firebase does not have a good native payment processing system, we have simply enabled users to input how much money they have to spend. Were this app to officially launch, we would implement payment processing instead of having a simple balance. 
+
+Upon the home screen, users can buy, sell, and browse through our inventory. Users can also view their own purchase history, selling history, and all items they are currently trying to sell. Users can also remove items from the marketplace, taking down their listing from the website. The features are pretty intuitive: each item has a name, price, and description which will be input from sellers. Buyers can simply click "purchase" to buy an item, taking it off the marketplace and transferring funds as applicable.
+
+### Thank you for using Shop Green!
+
