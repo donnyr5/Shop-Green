@@ -51,15 +51,6 @@ const Home = (props) => {
             >
                 <ListItems searchResults={searchResults} email={props.email}/>
             </div>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'Center',
-                    alignItems: 'Left',
-                }}
-            >
-
-            </div>
         </>
     );
 };

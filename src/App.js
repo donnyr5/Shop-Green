@@ -6,6 +6,8 @@ import NewUser from './components/NewUser';
 
 import {Navbar2} from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 import { auth } from './components/GoogleLogin';
 
