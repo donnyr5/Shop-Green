@@ -1,11 +1,10 @@
 import "./ListItems.css"
-import React, { useState } from 'react';
+import React from 'react';
 import { addDoc } from 'firebase/firestore';
-import { itemCollectionRef, userCollectionRef, histCollectionRef } from '../firestore-collection';
-import {collection, doc, deleteDoc, getDocs, updateDoc, query, where, serverTimestamp} from 'firebase/firestore';
+import { userCollectionRef, histCollectionRef } from '../firestore-collection';
+import { doc, getDocs, updateDoc, query, where, serverTimestamp} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Button2 } from "./GoogleLogin";
-import { getCurrentDate } from "./History/getCurrentDate";
 import deleteItem from "./DeleteItem";
 
 

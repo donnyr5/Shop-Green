@@ -10,7 +10,7 @@ export default function Listings({email, items, setItems}) {
     const q = query(itemCollectionRef, where("owner", "==", email))
 
     useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
+        const unsubscribe = onSnapshot(q, snapshot => {
             setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
         })
         return () => {

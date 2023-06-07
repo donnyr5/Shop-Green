@@ -3,17 +3,12 @@ Nav,
 NavLink,
 Bars,
 NavMenu,
-NavBtn,
-NavBtnLink,
 } from './NavbarElements';
-import {GoogleSignIn, GoogleSignOut, auth} from '../components/GoogleLogin';
-import { doc, collection, query, where, onSnapshot, getDocs } from "firebase/firestore";
+import {GoogleSignIn, GoogleSignOut} from '../components/GoogleLogin';
+import { collection, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { userCollectionRef } from '../firestore-collection';
-import {Button2} from '../components/GoogleLogin';
 import styled from "styled-components";
-import {LandingImage} from './LandingImage';
 
 const Title2 = styled.h1`
   font-size: 2em;
@@ -76,7 +71,6 @@ export function Navbar2 () {
             <Title2 >Shop Green</Title2>
             <GoogleSignIn />
         </Nav>
-        <LandingImage />
         </>
     )
 }

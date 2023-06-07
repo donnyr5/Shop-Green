@@ -39,3 +39,32 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+
+.searchInputs {
+  margin-top: 105px;
+  display: flex;
+}
+
+.search input {
+  background-color: white;
+  border: 1;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  height: 30px;
+  width: 627px;
+}
+
+.addItem input {
+  background-color: white;
+  border: 1;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  height: 20px;
+  width: 400px;
+}

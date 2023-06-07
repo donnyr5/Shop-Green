@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import { userCollectionRef } from '../firestore-collection';
-import { GoogleSignOut } from './GoogleLogin';
-import { doc, collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import '../App.css'
 
-import Navbar from '../components/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar, {Navbar2} from '../components/Navbar';
 import Home from '../pages/Home';
-import AddItem from '../components/AddItem';
-import { About } from './About';
+import AddItem from '../pages/AddItem';
+import { About } from '../pages/About';
 import Profile from '../pages/Profile';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Button2 } from './GoogleLogin';
 
 export default function NewUser(props){
 
@@ -70,14 +70,20 @@ function handleSubmit(e) {
 
 return (
     <div>
-    <h4>Create Shop Green Account</h4>
-    <form onSubmit={handleSubmit}>
-        <label htmlFor='balance'> </label>
-        <input id='price' type="number" value={balance} onChange={e => setBalance(parseInt (e.target.value) )} /> How much money do you have?
-        <button type='submit' >Submit Information</button>
+    <BrowserRouter>
+    <Navbar2 />
+    </BrowserRouter>
+    <div />
+        <div className="addItem">
+            <h4>Create Shop Green Account</h4>
+                <form onSubmit={handleSubmit}>
+                     <label htmlFor='balance'> </label>
+                        <input id='price' type="number" value={balance} onChange={e => setBalance(parseInt (e.target.value) )} /> How much money do you have?
+        <div />
+        <Button2 type='submit' >Submit Information</Button2>
     </form>
     <div />
-    <GoogleSignOut />
+</div>
 </div>
 )
 }

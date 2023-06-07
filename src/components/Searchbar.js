@@ -1,4 +1,4 @@
-import "./Searchbar.css"
+import "../App.css"
 import { ShowBalance } from "./Navbar";
 
 const Searchbar = ({ items, setSearchResults, email}) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
 import {collection} from 'firebase/firestore';
 import { db } from '../firebase';
-import { Button2 } from './GoogleLogin';
+import { Button2 } from '../components/GoogleLogin';
 export default function AddItem(props) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
@@ -38,16 +38,17 @@ export default function AddItem(props) {
         alert("Item posted to Shop Green!")
     }
     return (
-        <div>
-            <h4>Post an Item for Sale</h4>
+        <div className="addItem">
+            <h4>Sell a Plant on Shop Green</h4>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='name'> </label>
-                <input id='name' type="text" value={name} onChange={e => setName(e.target.value)} /> Name of Item
+                <div />
+                <input id='name' type="text" value={name} onChange={e => setName(e.target.value)} /> Type of Plant
                 <div />
                 {/* Firebase doesn't support decimal numbers due to imprecision with rounding.*/}
                 <input id='price' type="number" value={price} onChange={e => setPrice(parseInt(e.target.value))  } /> Listing Price (a positive integer)
                 <div />
-                <input id='description' type="text" value={description} onChange={e => setDescription(e.target.value)} /> Description (i.e. condition, size)
+                <input id='description' type="text" value={description} onChange={e => setDescription(e.target.value)} /> Plant Description (species, size, color, etc.)
                 <div />
                 <Button2 type='submit' >Create Item</Button2>
             </form>

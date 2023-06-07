@@ -1,16 +1,5 @@
-import React, { useState, useRef, useCallback } from "react";
-import styled from "styled-components";
+import React from "react";
 import Plants1 from "../images/plants1.jpeg";
-import Plants2 from "../images/Plants2.jpeg";
-
-const Credits = styled.div`
-  float: right;
-  color: #023047;
-  margin-right: 10px;
-  padding-top: 0.5em;
-  font-size: 18px;
-  font-family: 'Pontano Sans', sans-serif;
-`;
 
 export const LandingImage = () => {
   return (
