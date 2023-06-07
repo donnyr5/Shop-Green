@@ -3,6 +3,7 @@ import { itemCollectionRef } from '../../firestore-collection';
 import { getDocs, query, where, onSnapshot} from 'firebase/firestore';
 import { Button2 } from '../GoogleLogin';
 import deleteItem from '../DeleteItem';
+import { EmptyBox } from '../blankSpace';
 
 export default function Listings({email, items, setItems}) {
 
@@ -44,6 +45,7 @@ export default function Listings({email, items, setItems}) {
                     </tr>
                 </table>
             ))}
+            <EmptyBox />
             </div>
         </>
     )

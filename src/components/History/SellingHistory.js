@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { histCollectionRef } from '../../firestore-collection';
 import { getDocs, query, where, onSnapshot} from 'firebase/firestore';
+import { EmptyBox } from '../blankSpace';
 
 export default function SellingHistory({email, items, setItems}) {
     const q = query(histCollectionRef, where("seller", "==", email))
@@ -45,6 +46,7 @@ export default function SellingHistory({email, items, setItems}) {
                     </tr>
                 </table>
             ))}
+            <EmptyBox />
             </div>
         </>
     )
