@@ -7,7 +7,13 @@ Imagine you bought a house that is landscaped like a desert, with cactus and sma
 
 Shop Green is ran with Firebase, so there is a cloud database already existing. 
 
-To access the application, Open terminal and clone this databse into a folder on your desktop
+To access the application, Open terminal and clone this database into a new folder on your desktop
+
+### `$ mkdir Shop_Green_app` 
+The name of this folder is not important: "Shop_Green_App" is just a suggestion. this is where you will store the application on your local machine.
+
+### `$ cd Shop_Green_app`
+
 ### `$ git clone  https://github.com/donnyr5/Shop-Green.git`
 
 Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm].
