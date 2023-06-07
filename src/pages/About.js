@@ -3,7 +3,7 @@
 export function About() {
     return(
         <div>
-                <h1> Transform Your Landscape with Ease and Sustainability</h1>
+                <h1> Transform Your Landscape, Save Money, Help the Planet!</h1>
             <body class="aboutText">
                     <p> Welcome to Shop Green, where your landscape dreams come to life while upholding
                      the principles of environmental consciousness. Imagine you've recently acquired 

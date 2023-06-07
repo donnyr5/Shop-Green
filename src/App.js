@@ -25,11 +25,13 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='' element={<LandingImage />} />
               <Route path='' element={<LandingImage />} />
+              <Route path='/post' element={<LandingImage />} />
+              <Route path='/profile' element={<LandingImage />} />
             </Routes>
           </BrowserRouter>
         </>}
       </section>
-      <div class="footer">
+      <div class ="footer">
           <Footer />
         </div>
         </>
