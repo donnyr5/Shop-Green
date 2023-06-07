@@ -23,6 +23,7 @@ cursor: pointer;
 &.active {
 	color: #000000;
 }
+font-family: 'Eczar', serif;
 `;
 
 export const Bars = styled(FaBars)`

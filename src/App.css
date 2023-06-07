@@ -68,3 +68,13 @@
   height: 20px;
   width: 400px;
 }
+
+.footer {
+  background: #63D471;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: black;
+  font-size: 15px;
+}

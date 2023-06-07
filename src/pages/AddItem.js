@@ -47,7 +47,7 @@ export default function AddItem(props) {
                 <div />
                 <input id='description' type="text" value={description} onChange={e => setDescription(e.target.value)} /> Plant Description (species, size, color, etc.)
                 <div />
-                <Button2 type='submit' >Create Item</Button2>
+                <Button2 type='submit' >Sell Plant!</Button2>
             </form>
         </div>
     )

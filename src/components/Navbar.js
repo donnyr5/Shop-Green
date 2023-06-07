@@ -14,7 +14,7 @@ const Title2 = styled.h1`
   font-size: 2em;
   text-align: center;
   font-family: 'Eczar', serif;
-  margin: 0px;
+  margin: 0px 37px 0px 0px;
 `;
 const Title = styled.h1`
   font-size: 2em;
@@ -55,16 +55,16 @@ export function Navbar2 () {
         <Nav>
             <Bars />
             <NavMenu>
-            <NavLink>
+            <NavLink to='/'>
                 Home
             </NavLink>
-            <NavLink>
+            <NavLink to='/'>
                 Post
             </NavLink>
-             <NavLink >
-                About  
+             <NavLink to='/about'>
+                About
              </NavLink>
-            <NavLink>
+            <NavLink to='/'>
                 Profile
             </NavLink>
             </NavMenu>

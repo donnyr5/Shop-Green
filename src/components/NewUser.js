@@ -69,6 +69,9 @@ return (
     <div>
     <BrowserRouter>
     <Navbar2 />
+    <Routes>
+    <Route path='/about' element= {<About />} />
+    </Routes>
     </BrowserRouter>
     <div />
         <div className="addItem">
