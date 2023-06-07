@@ -14,26 +14,26 @@ Shop Green is ran with Firebase, so there is a cloud database already existing.
 
 To access the application, Open terminal and clone this database into a new folder on your desktop
 
-### `$ mkdir Shop_Green_app` 
+### `mkdir Shop_Green_app` 
 The name of this folder is not important: "Shop_Green_App" is just a suggestion. this is where you will store the application on your local machine.
 
-### `$ cd Shop_Green_app`
+### `cd Shop_Green_app`
 
-### `$ git clone  https://github.com/donnyr5/Shop-Green.git`
+### `git clone  https://github.com/donnyr5/Shop-Green.git`
 
 Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 To install the necessary dependencies, run
-### `$ npm install react-firebase-hooks firebase react-router-dom styled-components@5.3.10`
+### `npm install react-firebase-hooks firebase react-router-dom styled-components@5.3.10`
 
 Navigate to the directory for the app
-### `$ cd cd Shop-Green`
+### `cd cd Shop-Green`
 
 To build it, run
-### `$ npm install`
+### `npm install`
 
 To run the application on your browser (default is port 3000), run
-### `$ npm start`
+### `npm start`
 
 ### How to use Shop Green
 
