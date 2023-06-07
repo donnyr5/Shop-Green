@@ -1,6 +1,31 @@
 ## Motivation 
 
-Imagine you bought a house that is landscaped like a desert, with cactus and small shrubs dotting the yard, and you want to redo it to look like a rainforest. Rather than wasting perfecty good plants by simply removing and discarding them, you could instead sell them on Shop Green to someone looking to purchase cactus for their mojave-themed backyard. And rather than driving to the Home Depot to purchase expensive, or highly exotic tropical plants for your garden that might not be in stock, you could buy them from Shop Green. This revolutionary app will save time, money, and the planet!
+                     <p> Welcome to Shop Green, where your landscape dreams come to life while upholding
+                     the principles of environmental consciousness. Imagine you've recently acquired 
+                     a house with a desert-inspired yard, adorned with cacti and shrubs. However, your 
+                     vision is to turn it into a thriving rainforest oasis. At Shop Green, we offer 
+                     you a unique solution that minimizes waste and ensures convenience.</p>
+                     <p>
+                         Rather than disposing of your existing plants, Shop Green connects sellers and 
+                     buyers who are interested in giving these plants a new lease on life. Sellers can 
+                     find interested individuals seeking cacti for their Mojave-themed backyards, while 
+                     buyers have access to a diverse selection of plant species for their own gardens. 
+                     By repurposing plants and encouraging reuse, Shop Green not only helps you save 
+                     money but also contributes to a more sustainable planet.</p>
+                     <p>
+                        Say goodbye to tiresome trips to retail stores with limited options. Shop Green 
+                     provides you with a vast array of affordable and exotic tropical plants, right at 
+                     your fingertips. No more frustration over unavailable items or exorbitant prices. 
+                     Our innovative platform ensures that you have access to the plants you desire, 
+                     bringing the essence of the rainforest directly to your doorstep.</p>
+
+                     <p>
+                         Whether you're an avid gardening enthusiast or a homeowner looking to create an 
+                     eco-friendly landscape, Shop Green is your trusted solution. Experience the ease 
+                     and fulfillment of designing your own green paradise while actively contributing 
+                     to the preservation of our planet. Save time, save money, and embrace a sustainable 
+                     future with Shop Green. Begin your transformative journey today!
+                     </p>
 
 
 ### Deployment
@@ -16,10 +41,13 @@ The name of this folder is not important: "Shop_Green_App" is just a suggestion.
 
 ### `$ git clone  https://github.com/donnyr5/Shop-Green.git`
 
-Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm].
+Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 To install the necessary dependencies, run
-### `$ npm install react-firebase-hooks firebase react-router-dom styled-components`
+### `$ npm install react-firebase-hooks firebase react-router-dom styled-components@5.3.10`
+
+Navigate to the directory for the app
+### `$ cd cd Shop-Green`
 
 To build it, run
 ### `$ npm install`
