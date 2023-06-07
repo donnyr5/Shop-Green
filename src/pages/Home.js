@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { getDocs, onSnapshot} from "firebase/firestore";
 import ListItems from '../components/ListItems';
 import Searchbar from '../components/Searchbar';
-import { collection, doc, deleteDoc, updateDoc, query, where} from 'firebase/firestore';
+import { query, where} from 'firebase/firestore';
 import { itemCollectionRef } from '../firestore-collection';
 
 
