@@ -7,7 +7,6 @@ import deleteItem from '../DeleteItem';
 
 export default function Listings({email, items, setItems}) {
 
-
     const q = query(itemCollectionRef, where("owner", "==", email))
 
     useEffect(() => {           // so that it updates.  
