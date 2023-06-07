@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { getDocs, onSnapshot} from "firebase/firestore";
 import ListItems from '../components/ListItems';
 import Searchbar from '../components/Searchbar';
+import { collection, doc, deleteDoc, updateDoc, query, where} from 'firebase/firestore';
 import { itemCollectionRef } from '../firestore-collection';
 
 
@@ -9,8 +10,11 @@ const Home = (props) => {
     const [items, setItems] = useState([])
     const [searchResults, setSearchResults] = useState([])
 
+
+    const q = query(itemCollectionRef, where("owner", "!=", props.email))
+
     useEffect(() => {           // so that it updates.  
-    const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
+    const unsubscribe = onSnapshot(q, snapshot => {
         setSearchResults(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
     })
 
@@ -19,17 +23,13 @@ const Home = (props) => {
     }
 }, [])
     useEffect(() => {
-        getDocs(itemCollectionRef)
+        getDocs(q)
         .then(response => {
             console.log(response.docs)
             let itms = response.docs.map(doc => ({
                 data: doc.data(),
                 id: doc.id,
             }))
-            itms = itms.filter(item => {
-                console.log(item.data.owner)
-                return item.data.owner !== props.email
-            })
             setItems(itms)
             setSearchResults(itms)
         }).catch(error => console.log(error.message))
