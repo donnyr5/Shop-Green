@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShowBalance } from '../components/Navbar';
 import { itemCollectionRef, histCollectionRef } from '../firestore-collection';
-import {collection, doc, deleteDoc, getDocs, updateDoc, query, where} from 'firebase/firestore';
+import { collection, doc, deleteDoc, getDocs, updateDoc, query, where } from 'firebase/firestore';
 import SellingHistory from '../components/History/SellingHistory';
 import PurchaseHistory from '../components/History/PurchaseHistory';
 import Listings from '../components/History/Listings';
@@ -19,7 +19,7 @@ const Profile = (props) => {
     //         unsubscribe()
     //     }
     // }, [])
-    
+
     // const q = query(histCollectionRef, where("buyer","==",props.email))
 
     // useEffect(() => {
@@ -63,18 +63,18 @@ const Profile = (props) => {
     //     setItems(itms)
     // }
 
-    const handleChange = (event)=> {
+    const handleChange = (event) => {
         setItems([])
         setOption(event.target.value)
     }
 
     const display = () => {
-        if (option === "sellingHistory")
+        if (option === "Selling History")
             return <SellingHistory email={props.email} items={items} setItems={setItems} />
-        if (option === "purchaseHistory")
-            return <PurchaseHistory email={props.email} items={items} setItems={setItems}/>
-        if (option === "listings")
-            return <Listings email={props.email} items={items} setItems={setItems}/>
+        if (option === "Purchase History")
+            return <PurchaseHistory email={props.email} items={items} setItems={setItems} />
+        if (option === "Listings")
+            return <Listings email={props.email} items={items} setItems={setItems} />
     }
     return (
         <>
@@ -85,21 +85,27 @@ const Profile = (props) => {
                 <h1><ShowBalance email={props.email} /></h1>
             </div>
             <label>
-            <select onChange={handleChange}>
-                <option value disabled selected> Choose option </option>
-                <option value="sellingHistory">Selling History</option>
-                <option value="purchaseHistory">Purchase History</option>
-                <option value="listings">Listings</option>
-            </select>
+                <select onChange={handleChange}>
+                    <option value disabled selected> Choose option </option>
+                    <option value="Selling History">Selling History</option>
+                    <option value="Purchase History">Purchase History</option>
+                    <option value="Listings">Listings</option>
+                </select>
             </label>
-            <div>
+            <h1> {option}</h1>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'Center',
+                    alignItems: 'Center',
+                }}>
                 {display()}
             </div>
-            
+
         </>
     );
 
-   
+
 };
 
 

@@ -10,14 +10,14 @@ export default function Listings({email, items, setItems}) {
 
     const q = query(itemCollectionRef, where("owner", "==", email))
 
-    useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
-            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-        })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    // useEffect(() => {           // so that it updates.  
+    //     const unsubscribe = onSnapshot(itemCollectionRef, snapshot => {
+    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+    //     })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -33,7 +33,6 @@ export default function Listings({email, items, setItems}) {
 
     return (
         <>
-        <h1>Listings</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>

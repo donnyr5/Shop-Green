@@ -6,14 +6,14 @@ import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapsho
 export default function SellingHistory({email, items, setItems}) {
     const q = query(histCollectionRef, where("seller", "==", email))
 
-    useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(q, snapshot => {
-            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-        })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    // useEffect(() => {           // so that it updates.  
+    //     const unsubscribe = onSnapshot(q, snapshot => {
+    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+    //     })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -29,7 +29,6 @@ export default function SellingHistory({email, items, setItems}) {
 
     return (
         <>
-        <h1>Selling History</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>

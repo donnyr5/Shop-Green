@@ -7,14 +7,14 @@ export default function PurchaseHistory({email, items, setItems}) {
 
     const q = query(histCollectionRef, where("buyer", "==", email))
 
-    useEffect(() => {           // so that it updates.  
-        const unsubscribe = onSnapshot(q, snapshot => {
-            setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-        })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    // useEffect(() => {           // so that it updates.  
+    //     const unsubscribe = onSnapshot(q, snapshot => {
+    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
+    //     })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
 
     useEffect(() => {
         getDocs(q)
@@ -30,7 +30,6 @@ export default function PurchaseHistory({email, items, setItems}) {
 
     return (
         <>
-        <h1>Purchase History</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>
