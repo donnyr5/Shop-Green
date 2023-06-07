@@ -9,70 +9,20 @@ const Profile = (props) => {
     const [items, setItems] = useState([])
     const [option, setOption] = useState([])
 
-    // useEffect(() => {           // so that it updates.  
-    //     const unsubscribe = onSnapshot(histCollectionRef, snapshot => {
-    //         setItems(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    //     })
-    //     return () => {
-    //         unsubscribe()
-    //     }
-    // }, [])
-    
-    // const q = query(histCollectionRef, where("buyer","==",props.email))
 
-    // useEffect(() => {
-    //     getDocs(q)
-    //     .then(response => {
-    //         console.log(response.docs)
-    //         const itms = response.docs.map(doc => ({
-    //             data: doc.data(),
-    //             id: doc.id,
-    //         }))
-    //         setItems(itms)
-    //     }).catch(error => console.log(error.message))
-    // }, [])
 
-    // async function showListed(email) {
-    //     const items = query(itemCollectionRef, where("owner","==",email))
-    //     const querySnapShot = await getDocs(items)
-    //     const itms = querySnapShot.docs.map(doc => ({
-    //         data: doc.data(),
-    //         id: doc.id
-    //     }))
-    //     setItems(itms)
-    // }
-
-    // async function purchaseHistory(email){
-    //     const querySnapShot = await getDocs(items)
-    //     const itms = querySnapShot.docs.map(doc => ({
-    //         data: doc.data(),
-    //         id: doc.id
-    //     }))
-    //     setItems(itms)
-    // }
-
-    // async function sellingHistory(email){
-    //     const items = query(histCollectionRef, where("seller","==",email))
-    //     const querySnapShot = await getDocs(items)
-    //     const itms = querySnapShot.docs.map(doc => ({
-    //         data: doc.data(),
-    //         id: doc.id
-    //     }))
-    //     setItems(itms)
-    // }
-
-    const handleChange = (event)=> {
+    const handleChange = (event) => {
         setItems([])
         setOption(event.target.value)
     }
 
     const display = () => {
-        if (option === "sellingHistory")
+        if (option === "Selling History")
             return <SellingHistory email={props.email} items={items} setItems={setItems} />
-        if (option === "purchaseHistory")
-            return <PurchaseHistory email={props.email} items={items} setItems={setItems}/>
-        if (option === "listings")
-            return <Listings email={props.email} items={items} setItems={setItems}/>
+        if (option === "Purchase History")
+            return <PurchaseHistory email={props.email} items={items} setItems={setItems} />
+        if (option === "Listings")
+            return <Listings email={props.email} items={items} setItems={setItems} />
     }
     return (
         <>
@@ -83,21 +33,27 @@ const Profile = (props) => {
                 <h1><ShowBalance email={props.email} /></h1>
             </div>
             <label>
-            <select onChange={handleChange}>
-                <option value disabled selected> Choose option </option>
-                <option value="sellingHistory">Selling History</option>
-                <option value="purchaseHistory">Purchase History</option>
-                <option value="listings">Listings</option>
-            </select>
+                <select onChange={handleChange}>
+                    <option value disabled selected> Choose option </option>
+                    <option value="Selling History">Selling History</option>
+                    <option value="Purchase History">Purchase History</option>
+                    <option value="Listings">Listings</option>
+                </select>
             </label>
-            <div>
+            <h1> {option}</h1>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'Center',
+                    alignItems: 'Center',
+                }}>
                 {display()}
             </div>
-            
+
         </>
     );
 
-   
+
 };
 
 

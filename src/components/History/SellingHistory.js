@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ShowBalance } from '../Navbar';
-import { itemCollectionRef, histCollectionRef } from '../../firestore-collection';
-import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
+import React, {  useEffect } from 'react';
+import { histCollectionRef } from '../../firestore-collection';
+import { getDocs, query, where, onSnapshot} from 'firebase/firestore';
 
 export default function SellingHistory({email, items, setItems}) {
     const q = query(histCollectionRef, where("seller", "==", email))
@@ -29,7 +28,6 @@ export default function SellingHistory({email, items, setItems}) {
 
     return (
         <>
-        <h1>Selling History</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>

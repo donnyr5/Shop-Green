@@ -30,7 +30,6 @@ export default function PurchaseHistory({email, items, setItems}) {
 
     return (
         <>
-        <h1>Purchase History</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>

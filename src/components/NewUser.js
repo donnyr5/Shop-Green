@@ -44,8 +44,6 @@ export default function NewUser(props){
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    console.log(querySnapshot.length)
-
     if (querySnapshot.length > 0){
         return (
         <PostLogin email={email} />

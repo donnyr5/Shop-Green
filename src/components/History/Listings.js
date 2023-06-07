@@ -32,7 +32,6 @@ export default function Listings({email, items, setItems}) {
 
     return (
         <>
-        <h1>Listings</h1>
         <div>
             {items && items.map(item => (
                 <table key={item.id}>
