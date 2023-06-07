@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ShowBalance } from '../Navbar';
-import { itemCollectionRef, histCollectionRef } from '../../firestore-collection';
-import { collection, doc, deleteDoc, getDocs, updateDoc, query, where, onSnapshot} from 'firebase/firestore';
+import React, { useEffect } from 'react';
+import { itemCollectionRef } from '../../firestore-collection';
+import { getDocs, query, where, onSnapshot} from 'firebase/firestore';
 import { Button2 } from '../GoogleLogin';
 import deleteItem from '../DeleteItem';
 

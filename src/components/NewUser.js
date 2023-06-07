@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { addDoc, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { userCollectionRef } from '../firestore-collection';
+import { query, where, onSnapshot } from "firebase/firestore";
 import '../App.css'
 
 import Navbar, {Navbar2} from '../components/Navbar';
@@ -17,7 +17,7 @@ export default function NewUser(props){
     const [balance, setBalance] = useState('')
     let email = props.email //email of the current user
 
-    const q = query(collection(db, "users"), where("email", "==", email));
+    const q = query(userCollectionRef, where("email", "==", email));
 
     const [querySnapshot,setQuerySnapshot] = useState('')
 
@@ -57,8 +57,7 @@ function handleSubmit(e) {
         alert("Must have positive amount of money!")
         return
     }
-    const usersCollRef = collection(db, 'users')
-    addDoc(usersCollRef, {balance, email}).then(response => { 
+    addDoc(userCollectionRef, {balance, email}).then(response => { 
         console.log(response) 
     }).catch(error => {
         console.log(error.message)

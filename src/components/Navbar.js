@@ -5,10 +5,10 @@ Bars,
 NavMenu,
 } from './NavbarElements';
 import {GoogleSignIn, GoogleSignOut} from '../components/GoogleLogin';
-import { collection, query, where, onSnapshot, getDocs } from "firebase/firestore";
+import { query, where, onSnapshot, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase';
 import styled from "styled-components";
+import { userCollectionRef } from '../firestore-collection';
 
 const Title2 = styled.h1`
   font-size: 2em;
@@ -77,7 +77,7 @@ export function Navbar2 () {
 
 export function ShowBalance({email}){
 
-const q = query(collection(db, "users"), where("email", "==", email));
+const q = query(userCollectionRef, where("email", "==", email));
 const [querySnapshot,setQuerySnapshot] = useState('')
 
 useEffect(() => {           // so that it updates.  

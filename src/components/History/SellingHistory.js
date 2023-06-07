@@ -1,4 +1,4 @@
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { histCollectionRef } from '../../firestore-collection';
 import { getDocs, query, where, onSnapshot} from 'firebase/firestore';
 

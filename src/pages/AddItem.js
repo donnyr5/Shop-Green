@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
-import {collection} from 'firebase/firestore';
-import { db } from '../firebase';
 import { Button2 } from '../components/GoogleLogin';
+import { itemCollectionRef } from '../firestore-collection';
+
 export default function AddItem(props) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
     let owner = props.email;
-    // console.log(props.email);
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -26,8 +24,7 @@ export default function AddItem(props) {
             return
         }
         
-        const itemsCollRef = collection(db, 'items')
-        addDoc(itemsCollRef, { name, price, description, owner}).then(response => { 
+        addDoc(itemCollectionRef, { name, price, description, owner}).then(response => { 
             console.log(price) 
         }).catch(error => {
             console.log(error.message)
