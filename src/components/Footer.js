@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
- 
+import Logo from "../images/logo.png";
+
 export const Title = styled.h1`
   font-size: 0.95em;
-  text-align: center;
   font-family: 'Eczar', serif;
-  margin: 12px 0px 10px 10px;
 `
 
 const Footer = () => (
-    <footer className="footer">
-        <Title>
-        Built by: Donovan Rimer, Brandon Wu, Michael Song
-        </Title>
-    </footer>
+  <footer className="footer" style={{ textAlign: 'center' }}>
+    <img
+      src={Logo}
+      alt="landing image"
+      style={{ width: "50px", marginRight: '450px', marginTop:'1px'}}
+    />
+    <Title style={{ marginTop: '-40px' }}>
+      Built by: Donovan Rimer, Brandon Wu, Michael Song
+    </Title>
+  </footer>
 );
- 
+
 export default Footer;
