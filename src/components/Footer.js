@@ -11,7 +11,7 @@ const Footer = () => (
   <footer className="footer" style={{ textAlign: 'center' }}>
     <img
       src={Logo}
-      alt="landing image"
+      alt="shop green logo"
       style={{ width: "50px", marginRight: '450px', marginTop:'1px'}}
     />
     <Title style={{ marginTop: '-40px' }}>
