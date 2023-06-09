@@ -11,20 +11,23 @@ const Home = (props) => {
     const [searchResults, setSearchResults] = useState([])
 
 
-    const q = query(itemCollectionRef, where("owner", "!=", props.email), orderBy("owner") )
+    // const q = query(itemCollectionRef, where("owner", "!=", props.email), orderBy("owner") )
 
-    // const q = query(itemCollectionRef, orderBy("owner") )
+    const q = query(itemCollectionRef, orderBy("name"))
 
 
     useEffect(() => {           // so that it updates.  
-    const unsubscribe = onSnapshot(q, snapshot => {
-        setSearchResults(snapshot.docs.map(doc => ({id: doc.id, data: doc.data() })))
-    })
+        const unsubscribe = onSnapshot(q, snapshot => {
+            var docs = snapshot.docs.map(doc => ({id: doc.id, data: doc.data()}))
+            docs = docs.filter(doc => {return doc.data.owner !== props.email})
+            setSearchResults(docs)
+        })
+    
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
-    return () => {
-        unsubscribe()
-    }
-}, [])
     useEffect(() => {
         getDocs(q)
         .then(response => {
@@ -33,10 +36,12 @@ const Home = (props) => {
                 data: doc.data(),
                 id: doc.id,
             }))
+            itms = itms.filter(item => {return item.data.owner !== props.email})
             setItems(itms)
             setSearchResults(itms)
         }).catch(error => console.log(error.message))
     }, [])
+
 
     return (
         <>
