@@ -12,7 +12,7 @@ const Footer = () => (
     <img
       src={Logo}
       alt="shop green logo"
-      style={{ width: "50px", marginRight: '450px', marginTop:'1px'}}
+      style={{ width: "50px", marginRight: '450px', marginTop:'0px'}}
     />
     <Title style={{ marginTop: '-40px' }}>
       Built by: Donovan Rimer, Brandon Wu, Michael Song

@@ -11,7 +11,10 @@ const Home = (props) => {
     const [searchResults, setSearchResults] = useState([])
 
 
-    const q = query(itemCollectionRef, orderBy('name'))
+    const q = query(itemCollectionRef, where("owner", "!=", props.email), orderBy("owner") )
+
+    // const q = query(itemCollectionRef, orderBy("owner") )
+
 
     useEffect(() => {           // so that it updates.  
     const unsubscribe = onSnapshot(q, snapshot => {

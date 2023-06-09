@@ -48,18 +48,6 @@ export default function ListItems({ searchResults, email}) {
     }
 
 
-    //Need to loop through and delete items that are self-owned.
-function isOwn(item) {
-    if (email === item.data.owner){
-        deleteItem(item.id)
-}
-}
-
-    //executes this function to delete own items so they are not displayed.
-{searchResults && searchResults.map(item => (
-    isOwn(item)
-    ))}
-
     return (
         <div>
             {searchResults && searchResults.map(item => (
