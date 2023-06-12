@@ -10,6 +10,9 @@ node_modules/
 # Testing
 coverage/
 
+#node modules
+*node_modules/*
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
