@@ -23,7 +23,7 @@ The name of this folder is not important: "Shop_Green_App" is just a suggestion.
 
 Set current directory to that folder, and run the following commands. Please note that Node Packet Manager is used for these installations. If you do not have these downloaded, refer to https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
-To install the necessary dependencies, run
+To install the necessary dependencies, run (including node_modules)
 ### `npm install react-firebase-hooks firebase react-router-dom styled-components@5.3.10`
 
 Navigate to the directory for the app
